@@ -1,0 +1,13 @@
+<template>
+  <aside>
+    <p>电影分类</p>
+    <ul>
+      <li>
+        科幻
+      </li>
+      <li>
+        科幻
+      </li>
+    </ul>
+  </aside>
+</template>
