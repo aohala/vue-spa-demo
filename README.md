@@ -32,7 +32,7 @@ yarn
 
 打开[http://localhost:8080](http://localhost:8080)能看到下面的初始页面
 
-![http://localhost:8080](./image/prepare01.jpg)
+![http://localhost:8080](./tutorial/image/prepare01.jpg)
 
 现在我们已经用脚手架很简单的完成了前端开发环境工作流的搭建，下一步我们将学习如何在项目处理应用的css样式、及单页面应用中组件的布局方式
 
