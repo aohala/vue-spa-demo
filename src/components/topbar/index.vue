@@ -43,5 +43,5 @@
       center-block()
       .center
       h3, nav
-        float: left;
+        float: left
 </style>
