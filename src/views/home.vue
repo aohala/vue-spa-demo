@@ -7,14 +7,14 @@
     <hr>
     <ul class="movie-list">
       <li v-for="(movie, index) in moviesNow" :key="index">
-        <preview-card :movie="movie"></preview-card>
+        <preview-card :movie="movie" @add-like="addLike" @add-to-favorites="addToFavorites"></preview-card>
       </li>
     </ul>
     <p>即将上映</p>
     <hr>
     <ul class="movie-list">
       <li v-for="(movie, index) in moviesComing" :key="index">
-        <preview-card :movie="movie"></preview-card>
+        <preview-card :movie="movie" v-on:add="addLike" @add-to-favorites="addToFavorites"></preview-card>
       </li>
     </ul>
   </div>
@@ -22,6 +22,7 @@
 <script>
 import MovieCategory from '@/components/category'
 import PreviewCard from '@/components/preview-card'
+import request from '@/api/request'
 
 export default {
   components: {
@@ -40,6 +41,31 @@ export default {
     },
     moviesComing () {
       return this.recentMovie.coming
+    }
+  },
+  methods: {
+    addLike (movie) {
+      console.log('mo')
+      request.post('like', {
+        id: movie._id
+      }).then(() => {
+        // 更新store中该条movie值
+        this.$store.dispatch('movie/update', {
+          _id: movie._id,
+          isLike: true
+        })
+      })
+    },
+    addToFavorites (movie) {
+      request.post('favorites', {
+        id: movie._id
+      }).then(() => {
+        // 更新store中该条movie值
+        this.$store.dispatch('movie/update', {
+          _id: movie._id,
+          isAdded: !movie.isAdded
+        })
+      })
     }
   }
 }

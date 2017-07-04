@@ -7,8 +7,7 @@
         </a>
         <router-link to="/" class="nav-item is-tab is-hidden-mobile" active-class="is-active" exact>首页</router-link>
         <router-link to="/all" class="nav-item is-tab is-hidden-mobile" active-class="is-active">所有电影</router-link>
-        <a class="nav-item is-tab is-hidden-mobile">我想看的</a>
-        <a class="nav-item is-tab is-hidden-mobile">我的评分</a>
+        <a class="nav-item is-tab is-hidden-mobile">我的收藏</a>
       </div>
       <span class="nav-toggle">
         <span></span>
@@ -18,8 +17,7 @@
       <div class="nav-right nav-menu">
         <a class="nav-item is-tab is-hidden-tablet is-active">首页</a>
         <a class="nav-item is-tab is-hidden-tablet">今日电影</a>
-        <a class="nav-item is-tab is-hidden-tablet">我想看的</a>
-        <a class="nav-item is-tab is-hidden-tablet">我的评分</a>
+        <a class="nav-item is-tab is-hidden-tablet">我的收藏</a>
         <a class="nav-item is-tab">
           <figure class="image is-16x16" style="margin-right: 8px;">
             <img src="http://bulma.io/images/jgthms.png">

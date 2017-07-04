@@ -11,3 +11,7 @@ export const fetchCategory = ({ commit }) => {
     commit('FETCH_CATEGORY_SUCCESS', data)
   })
 }
+
+export const update = ({ commit }, updatedData) => {
+  if (updatedData._id) commit('UPDATE', updatedData)
+}

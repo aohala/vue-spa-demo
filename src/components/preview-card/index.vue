@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card pointer">
     <div class="card-image">
       <figure class="image">
         <img :src="movie.cover_url">
@@ -8,11 +8,9 @@
     <div class="card-content">
       <div class="media">
         <div class="media-content">
-          <p class="title is-6"><strong>{{movie.title}}</strong></p>
-          <p class="subtitle is-6">评分：
-            <span class="icon">
-                <i class="fa fa-star"></i>
-              </span>
+          <p class="title is-6">
+            <strong>{{movie.title}}</strong>
+            <score :score="+movie.score" style="padding: 4px 0"></score>
           </p>
         </div>
       </div>
@@ -23,28 +21,68 @@
       </div>
     </div>
     <footer class="card-footer">
-      <p class="card-footer-item">
-        想看
+      <p class="card-footer-item" @click="$emit('addLike', movie)">
+        <i class="fa" :class="movie.isLike ? 'fa-heart':'fa-heart-o'"></i>
+        <span>喜欢</span>
       </p>
-      <p class="card-footer-item">
-        评分
+      <p class="card-footer-item" @click="$emit('addToFavorites', movie)">
+        <i class="fa" :class="movie.isAdded ? 'fa-star':'fa-star-o'"></i>
+        <span>{{movie.isAdded ? '已收藏' : '收藏'}}</span>
       </p>
     </footer>
   </div>
 
 </template>
 <script>
+import Score from '../score'
+
 export default {
-  props: ['movie']
+  props: {
+    movie: {
+      type: Object,
+      default: () => {
+        return {}
+      }
+    }
+  },
+  data () {
+    return {
+      showScoreAction: false
+    }
+  },
+  components: {
+    Score
+  }
 }
 </script>
 <style lang="stylus" scoped>
+  @import '~@/style/common.styl'
+  .card
+    transition opacity 200ms ease
+    &:hover
+      opacity .8
   .card-content
     padding .8rem
+    .content
+      margin-top: 26px;
   .card-image
     height 280px
     overflow hidden
-  .media
-    height: 60px
+  .media-content
+    width 100%
+    height: 16px
+    .title
+      white-space nowrap
+      text-overflow ellipsis
+      overflow hidden
+  .card-footer
+    .fa
+      font-size 15px
+      margin-right 4px
+    .fa-heart
+      color red
+    .fa-star
+      color primary-color
+    
 </style>
 

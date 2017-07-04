@@ -1,5 +1,5 @@
 const router = require('express').Router()
-
+const _ = require('lodash')
 /** 获取最近上映影片 */
 router.get('/recentMovie', function (req, res) {
   res.send({
@@ -16,6 +16,18 @@ router.get('/all', function (req, res) {
 /** 获取分类 */
 router.get('/category', function (req, res) {
   res.send(require('./data/category.json'))
+})
+
+/** 添加收藏 */
+router.post('/favorites', function (req, res) {
+  res.send({
+    id: _.uniqueId()
+  })
+})
+
+/** 标记为喜欢 */
+router.post('/like', function (req, res) {
+  res.send()
 })
 
 module.exports = router

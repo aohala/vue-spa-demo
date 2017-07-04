@@ -13,6 +13,21 @@ const mutations = {
   },
   FETCH_CATEGORY_SUCCESS (state, list) {
     state.categorys = list
+  },
+  UPDATE (state, updatedData) {
+    let indexInNow = state.recent.now.findIndex(item => item._id === updatedData._id)
+    if (indexInNow !== -1) {
+      let movie = Object.assign({}, state.recent.now[indexInNow], updatedData)
+      state.recent.now.splice(indexInNow, 1)
+      state.recent.now.splice(indexInNow, 0, movie)
+      return
+    }
+    let indexInComing = state.recent.coming.findIndex(item => item._id === updatedData._id)
+    if (indexInComing !== -1) {
+      let movie = Object.assign({}, state.recent.coming[indexInComing], updatedData)
+      state.recent.coming.splice(indexInComing, 1)
+      state.recent.coming.splice(indexInComing, 0, movie)
+    }
   }
 }
 
