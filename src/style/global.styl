@@ -1,8 +1,21 @@
 // 加载到全局的css样式, 在页面顶层组件中引入
-@import '~normalize.css'
+@import '~bulma/css/bulma.css'
+@import '~nprogress/nprogress.css'
+@import './common.styl'
 
 body
-  background:#fbfbfb
+  background #fbfbfb
+
+a
+  color inherit
 
 ul
-  list-style: none;
+  list-style none
+
+// 更改progressbar的默认颜色
+#nprogress
+  .bar
+    background primary-color
+  .spinner-icon
+    border-top-color primary-color
+    border-left-color primary-color
