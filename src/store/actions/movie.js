@@ -13,5 +13,6 @@ export const fetchCategory = ({ commit }) => {
 }
 
 export const update = ({ commit }, updatedData) => {
-  if (updatedData._id) commit('UPDATE', updatedData)
+  commit('UPDATE', updatedData)
+  commit('me/UPDATE_FAVORITE', updatedData, { root: true })
 }

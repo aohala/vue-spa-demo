@@ -15,17 +15,17 @@
         </div>
       </div>
       <div class="content">
-        {{movie.brief}}
+        <span v-if="showBrief">{{movie.brief}}</span>
         <br>
         <small>上映时间：{{movie.release_date}}</small>
       </div>
     </div>
     <footer class="card-footer">
-      <p class="card-footer-item" @click="$emit('addLike', movie)">
+      <p class="card-footer-item" @click="$emit('add-like', movie)">
         <i class="fa" :class="movie.isLike ? 'fa-heart':'fa-heart-o'"></i>
         <span>喜欢</span>
       </p>
-      <p class="card-footer-item" @click="$emit('addToFavorites', movie)">
+      <p class="card-footer-item" @click="$emit('add-favorites', movie)">
         <i class="fa" :class="movie.isAdded ? 'fa-star':'fa-star-o'"></i>
         <span>{{movie.isAdded ? '已收藏' : '收藏'}}</span>
       </p>
@@ -43,6 +43,10 @@ export default {
       default: () => {
         return {}
       }
+    },
+    showBrief: {
+      type: Boolean,
+      default: true
     }
   },
   data () {

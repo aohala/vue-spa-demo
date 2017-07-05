@@ -5,7 +5,6 @@
       <router-view></router-view>
     </main>
     <footer>
-      底部栏
     </footer>
   </div>
 </template>
@@ -39,6 +38,7 @@ export default {
 .main-content
   width content-width
   margin 50px auto
+  padding-bottom: 100px;
 
 footer
   width content-width
