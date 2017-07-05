@@ -3,14 +3,14 @@
     <!--<div class="column is-2">
       <movie-category></movie-category>      
     </div>-->
-    <p>正在上映</p>
+    <p class="title is-4">正在上映</p>
     <hr>
     <ul class="movie-list">
       <li v-for="(movie, index) in moviesNow" :key="index">
         <preview-card :movie="movie" @add-like="addLike" @add-favorites="addToFavorites"></preview-card>
       </li>
     </ul>
-    <p>即将上映</p>
+    <p class="title is-4" style="margin: 30px auto 20px">即将上映</p>
     <hr>
     <ul class="movie-list">
       <li v-for="(movie, index) in moviesComing" :key="index">
